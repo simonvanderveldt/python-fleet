@@ -488,7 +488,7 @@ class Client(object):
             unit (Unit): The unit to submit to fleet
 
         Returns:
-            Unit: The unit that was created
+            True: The request was successful
 
         Raises:
             fleet.v1.errors.APIError: Fleet returned a response code >= 400
@@ -500,7 +500,7 @@ class Client(object):
             'options': unit.options
         })
 
-        return self.get_unit(name)
+        return True
 
     def set_unit_desired_state(self, unit, desired_state):
         """Update the desired state of a unit running in the cluster
@@ -511,7 +511,7 @@ class Client(object):
             desired_state: State the user wishes the Unit to be in
                           ("inactive", "loaded", or "launched")
         Returns:
-            Unit: The unit that was updated
+            True: The request was successful
 
         Raises:
             fleet.v1.errors.APIError: Fleet returned a response code >= 400
@@ -535,7 +535,7 @@ class Client(object):
             'desiredState': desired_state
         })
 
-        return self.get_unit(unit)
+        return True
 
     def destroy_unit(self, unit):
         """Delete a unit from the cluster

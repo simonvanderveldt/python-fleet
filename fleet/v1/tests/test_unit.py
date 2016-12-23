@@ -318,6 +318,6 @@ class TestUnit(unittest.TestCase):
 
         assert unit.desiredState == 'launched'
 
-        assert unit.set_desired_state('inactive') == 'inactive'
+        self.assertTrue(unit.set_desired_state('inactive'))
 
         assert unit.desiredState == 'inactive'

@@ -311,8 +311,7 @@ class TestFleetClient(unittest.TestCase):
             Unit(from_file=os.path.join(self._BASE_DIR, 'fixtures/test.service'))
         )
 
-        assert unit
-        assert unit.name == 'test.service'
+        self.assertTrue(unit)
 
     def test_set_unit_desired_state_bad(self):
         """ValueError is raised when an invalid state is passed"""
@@ -334,8 +333,7 @@ class TestFleetClient(unittest.TestCase):
 
         unit = self.client.set_unit_desired_state('test.service', 'inactive')
 
-        assert unit
-        assert unit.desiredState == 'inactive'
+        self.assertTrue(unit)
 
     def test_set_unit_obj_desired_state_good(self):
         """Unit Desired State can be updated by object"""
@@ -352,8 +350,7 @@ class TestFleetClient(unittest.TestCase):
 
         unit = self.client.set_unit_desired_state(unit, 'inactive')
 
-        assert unit
-        assert unit.desiredState == 'inactive'
+        self.assertTrue(unit)
 
     def test_destroy_unit_name(self):
         """Destroy a unit by name"""
